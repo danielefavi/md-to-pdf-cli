@@ -5,8 +5,11 @@ Convert Markdown files to styled PDFs with syntax highlighting, math rendering, 
 ## Install
 
 ```bash
-npm install
-npm run build
+# Global install — makes md-to-pdf available everywhere
+npm install -g md-to-pdf-cli
+
+# Or as a project dependency
+npm install md-to-pdf-cli
 ```
 
 Requires Node.js >= 18. Puppeteer downloads a bundled Chromium automatically.
@@ -14,21 +17,24 @@ Requires Node.js >= 18. Puppeteer downloads a bundled Chromium automatically.
 ## Usage
 
 ```bash
-# Basic conversion — outputs document.pdf in the same directory
-md-to-pdf document.md
+# If installed globally:
+md-to-pdf-cli document.md
+
+# If installed as a project dependency:
+npx md-to-pdf-cli document.md
 
 # Custom output and title
-md-to-pdf notes.md -o ~/Desktop/notes.pdf -t "Meeting Notes"
+md-to-pdf-cli notes.md -o ~/Desktop/notes.pdf -t "Meeting Notes"
 
 # US Letter, landscape
-md-to-pdf report.md -f Letter --landscape
+md-to-pdf-cli report.md -f Letter --landscape
 
 # Custom margins
-md-to-pdf slides.md --margin-top 10mm --margin-bottom 10mm --margin-left 10mm --margin-right 10mm
+md-to-pdf-cli slides.md --margin-top 10mm --margin-bottom 10mm --margin-left 10mm --margin-right 10mm
 
 # Choose a built-in style or provide your own CSS
-md-to-pdf notes.md -s serif
-md-to-pdf notes.md -s ./custom-theme.css
+md-to-pdf-cli notes.md -s serif
+md-to-pdf-cli notes.md -s ./custom-theme.css
 ```
 
 ### Options
