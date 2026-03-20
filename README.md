@@ -34,7 +34,27 @@ md-to-pdf-cli slides.md --margin-top 10mm --margin-bottom 10mm --margin-left 10m
 
 # Choose a built-in style or provide your own CSS
 md-to-pdf-cli notes.md -s serif
+md-to-pdf-cli notes.md -s markdown3
 md-to-pdf-cli notes.md -s ./custom-theme.css
+```
+
+### Built-in styles
+
+| Style | Description |
+|-------|-------------|
+| `default` | Clean sans-serif theme (used when no style is specified) |
+| `serif` | Serif font theme |
+| `markdown1` – `markdown9` | Alternative markdown themes with varying typography and layout |
+
+```bash
+# Example: use the serif style
+md-to-pdf-cli report.md -s serif
+
+# Example: use one of the numbered markdown styles
+md-to-pdf-cli report.md -s markdown5
+
+# Example: use a custom CSS file
+md-to-pdf-cli report.md -s ./my-theme.css
 ```
 
 ### Options
