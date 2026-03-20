@@ -19,7 +19,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npx puppeteer browsers install chrome --install-deps
+      - run: sudo npx puppeteer browsers install chrome --install-deps
 
       - run: npm test
 
