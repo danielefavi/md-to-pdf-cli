@@ -35,5 +35,22 @@
     "typescript": "^5.3.3",
     "vitest": "^1.2.1"
   },
+  "keywords": [
+    "markdown",
+    "pdf",
+    "markdown-to-pdf",
+    "md-to-pdf",
+    "converter",
+    "cli",
+    "puppeteer",
+    "html-to-pdf",
+    "syntax-highlighting",
+    "prismjs",
+    "katex",
+    "math",
+    "gfm",
+    "document",
+    "export"
+  ],
   "license": "MIT"
 }
