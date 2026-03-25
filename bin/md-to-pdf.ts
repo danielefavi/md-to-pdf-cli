@@ -1,17 +1,27 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
 import { convertMdToPdf } from '../src/index.js';
 import { getBuiltInStyles } from '../src/styles.js';
 
 declare const PKG_VERSION: string;
+
+function getVersion(): string {
+  if (typeof PKG_VERSION !== 'undefined') return PKG_VERSION;
+  const __dirname = dirname(fileURLToPath(import.meta.url));
+  const pkg = JSON.parse(readFileSync(resolve(__dirname, '..', 'package.json'), 'utf-8'));
+  return pkg.version;
+}
 
 const program = new Command();
 
 program
   .name('md-to-pdf')
   .description('Convert Markdown files to styled PDF documents')
-  .version(PKG_VERSION)
+  .version(getVersion())
   .argument('<input>', 'Markdown file to convert')
   .option('-o, --output <path>', 'Output PDF file path')
   .option('-t, --title <title>', 'Document title')
