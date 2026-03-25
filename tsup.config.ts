@@ -1,4 +1,7 @@
 import { defineConfig } from 'tsup';
+import { readFileSync } from 'fs';
+
+const { version } = JSON.parse(readFileSync('./package.json', 'utf-8'));
 
 export default defineConfig({
   entry: {
@@ -15,4 +18,7 @@ export default defineConfig({
   treeshake: true,
   outDir: 'dist',
   shims: true,
+  define: {
+    PKG_VERSION: JSON.stringify(version),
+  },
 });

@@ -4,12 +4,14 @@ import { Command } from 'commander';
 import { convertMdToPdf } from '../src/index.js';
 import { getBuiltInStyles } from '../src/styles.js';
 
+declare const PKG_VERSION: string;
+
 const program = new Command();
 
 program
   .name('md-to-pdf')
   .description('Convert Markdown files to styled PDF documents')
-  .version('0.1.0')
+  .version(PKG_VERSION)
   .argument('<input>', 'Markdown file to convert')
   .option('-o, --output <path>', 'Output PDF file path')
   .option('-t, --title <title>', 'Document title')

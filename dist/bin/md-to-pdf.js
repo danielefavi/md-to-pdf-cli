@@ -361,7 +361,7 @@ async function convertMdToPdf(inputPath, options) {
 
 // bin/md-to-pdf.ts
 var program = new Command();
-program.name("md-to-pdf").description("Convert Markdown files to styled PDF documents").version("0.1.0").argument("<input>", "Markdown file to convert").option("-o, --output <path>", "Output PDF file path").option("-t, --title <title>", "Document title").option("-f, --format <format>", "Page format (A4, Letter, Legal)", "A4").option("--landscape", "Use landscape orientation").option("--margin-top <margin>", "Top margin (e.g. 20mm)").option("--margin-right <margin>", "Right margin (e.g. 20mm)").option("--margin-bottom <margin>", "Bottom margin (e.g. 20mm)").option("--margin-left <margin>", "Left margin (e.g. 20mm)").option("-s, --style <name-or-path>", `Style name (${getBuiltInStyles().join(", ")}) or path to .css file`).action(async (input, opts) => {
+program.name("md-to-pdf").description("Convert Markdown files to styled PDF documents").version("1.0.6").argument("<input>", "Markdown file to convert").option("-o, --output <path>", "Output PDF file path").option("-t, --title <title>", "Document title").option("-f, --format <format>", "Page format (A4, Letter, Legal)", "A4").option("--landscape", "Use landscape orientation").option("--margin-top <margin>", "Top margin (e.g. 20mm)").option("--margin-right <margin>", "Right margin (e.g. 20mm)").option("--margin-bottom <margin>", "Bottom margin (e.g. 20mm)").option("--margin-left <margin>", "Left margin (e.g. 20mm)").option("-s, --style <name-or-path>", `Style name (${getBuiltInStyles().join(", ")}) or path to .css file`).action(async (input, opts) => {
   try {
     const margin = opts.marginTop || opts.marginRight || opts.marginBottom || opts.marginLeft ? {
       top: opts.marginTop ?? "20mm",
