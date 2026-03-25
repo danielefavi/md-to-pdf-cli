@@ -307,7 +307,10 @@ function wrapHtml(contentHtml, options) {
 }
 var DEFAULT_MARGIN = { top: "20mm", right: "20mm", bottom: "20mm", left: "20mm" };
 async function generatePdf(html, options) {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: process.env.CI ? ["--no-sandbox", "--disable-setuid-sandbox"] : []
+  });
   let tempDir;
   try {
     const page = await browser.newPage();
