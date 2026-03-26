@@ -82,15 +82,15 @@ describe('wrapHtml', () => {
       expect(html).toContain('Open Sans');
     });
 
-    it('uses markdown1 light theme CSS', () => {
-      const html = wrapHtml('<p>test</p>', { style: 'markdown1' });
-      expect(html).toContain('background:#fefefe');
+    it('uses eink theme CSS with Vollkorn font', () => {
+      const html = wrapHtml('<p>test</p>', { style: 'eink' });
+      expect(html).toContain('Vollkorn');
       expect(html).not.toContain('Open Sans');
     });
 
-    it('uses markdown2 light theme CSS with Vollkorn font', () => {
-      const html = wrapHtml('<p>test</p>', { style: 'markdown2' });
-      expect(html).toContain('Vollkorn');
+    it('uses elegant theme CSS with Playfair Display font', () => {
+      const html = wrapHtml('<p>test</p>', { style: 'elegant' });
+      expect(html).toContain('Playfair Display');
       expect(html).not.toContain('Open Sans');
     });
 

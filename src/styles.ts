@@ -128,6 +128,7 @@ export const CSS = `
       margin: 0;
       overflow: hidden;
       table-layout: fixed;
+      width: 100%;
     }
 
     table td,

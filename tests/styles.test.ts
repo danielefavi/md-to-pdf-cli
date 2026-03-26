@@ -13,15 +13,15 @@ describe('resolveStyleCss', () => {
     expect(resolveStyleCss('default')).toBe(CSS);
   });
 
-  it('returns markdown1 CSS with light background', () => {
-    const css = resolveStyleCss('markdown1');
-    expect(css).toContain('background:#fefefe');
+  it('returns eink CSS with Vollkorn font', () => {
+    const css = resolveStyleCss('eink');
+    expect(css).toContain('Vollkorn');
     expect(css).not.toBe(CSS);
   });
 
-  it('returns markdown2 CSS with Vollkorn font', () => {
-    const css = resolveStyleCss('markdown2');
-    expect(css).toContain('Vollkorn');
+  it('returns elegant CSS with Playfair Display font', () => {
+    const css = resolveStyleCss('elegant');
+    expect(css).toContain('Playfair Display');
     expect(css).not.toBe(CSS);
   });
 
@@ -60,9 +60,8 @@ describe('getBuiltInStyles', () => {
   it('includes default and all .css files from styles directory', () => {
     const styles = getBuiltInStyles();
     expect(styles).toContain('default');
-    expect(styles).toContain('markdown1');
-    expect(styles).toContain('markdown2');
-    expect(styles).toContain('markdown9');
+    expect(styles).toContain('eink');
+    expect(styles).toContain('elegant');
     expect(styles).toContain('serif');
   });
 

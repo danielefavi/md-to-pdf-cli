@@ -61,13 +61,13 @@ describe('convertMdToPdf (integration)', () => {
   it('passes style option through to PDF generation', async () => {
     const inputPath = join(tmpDir, 'styled.md');
     await writeFile(inputPath, '# Styled');
-    const outputPath = await convertMdToPdf(inputPath, { style: 'markdown2' });
+    const outputPath = await convertMdToPdf(inputPath, { style: 'elegant' });
     const content = await readFile(outputPath);
     expect(content.subarray(0, 5).toString()).toBe('%PDF-');
   }, 30000);
 
   it('convertMarkdownToPdfBuffer accepts style option', async () => {
-    const buffer = await convertMarkdownToPdfBuffer('# Test', { style: 'markdown1' });
+    const buffer = await convertMarkdownToPdfBuffer('# Test', { style: 'eink' });
     expect(buffer.subarray(0, 5).toString()).toBe('%PDF-');
   }, 30000);
 });
