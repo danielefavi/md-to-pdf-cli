@@ -8,10 +8,10 @@ const tsxPath = 'npx';
 const pkg = JSON.parse(readFileSync('package.json', 'utf-8'));
 
 describe('CLI', () => {
-  it('--help shows usage with md-to-pdf and <input>', async () => {
+  it('--help shows usage with md-to-pdf and [input]', async () => {
     const { stdout } = await execFileAsync(tsxPath, ['tsx', 'bin/md-to-pdf.ts', '--help']);
     expect(stdout).toContain('md-to-pdf');
-    expect(stdout).toContain('<input>');
+    expect(stdout).toContain('[input]');
   });
 
   it('--version shows package.json version', async () => {

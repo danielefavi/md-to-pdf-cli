@@ -22,7 +22,7 @@ program
   .name('md-to-pdf')
   .description('Convert Markdown files to styled PDF documents')
   .version(getVersion())
-  .argument('<input>', 'Markdown file to convert')
+  .argument('[input]', 'Markdown file to convert')
   .option('-o, --output <path>', 'Output PDF file path')
   .option('-t, --title <title>', 'Document title')
   .option('-f, --format <format>', 'Page format (A4, Letter, Legal)', 'A4')
@@ -32,8 +32,21 @@ program
   .option('--margin-bottom <margin>', 'Bottom margin (e.g. 20mm)')
   .option('--margin-left <margin>', 'Left margin (e.g. 20mm)')
   .option('-s, --style <name-or-path>', `Style name (${getBuiltInStyles().join(', ')}) or path to .css file`)
-  .action(async (input: string, opts: Record<string, string | boolean | undefined>) => {
+  .option('-l, --list-styles', 'List available styles')
+  .action(async (input: string | undefined, opts: Record<string, string | boolean | undefined>) => {
     try {
+      if (opts.listStyles) {
+        console.log('Available styles:\n');
+        for (const style of getBuiltInStyles()) {
+          console.log(`  ${style}`);
+        }
+        process.exit(0);
+      }
+
+      if (!input) {
+        program.error('missing required argument: input');
+        return;
+      }
       const margin = (opts.marginTop || opts.marginRight || opts.marginBottom || opts.marginLeft)
         ? {
             top: (opts.marginTop as string | undefined) ?? '20mm',

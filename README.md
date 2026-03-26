@@ -54,6 +54,7 @@ npx md-to-pdf-cli document.md
 | `--margin-right <margin>` | Right margin (CSS units) | `20mm` |
 | `--margin-bottom <margin>` | Bottom margin (CSS units) | `20mm` |
 | `--margin-left <margin>` | Left margin (CSS units) | `20mm` |
+| `-l, --list-styles` | List available built-in styles | |
 
 ## Built-in Styles
 
@@ -299,6 +300,7 @@ Options:
   --margin-right <margin>  Right margin (default: 20mm)
   --margin-bottom <margin> Bottom margin (default: 20mm)
   --margin-left <margin>   Left margin (default: 20mm)
+  -l, --list-styles        List available built-in styles
   -V, --version            Output version number
   -h, --help               Display help
 ```

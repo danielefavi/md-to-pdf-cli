@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
+import { readdirSync, existsSync, readFileSync } from 'fs';
+import { fileURLToPath, pathToFileURL } from 'url';
 import { basename, join, dirname, resolve, extname } from 'path';
 import { readFile, writeFile, mkdtemp, rm } from 'fs/promises';
 import { marked, Renderer } from 'marked';
@@ -19,8 +21,6 @@ import 'prismjs/components/prism-yaml.js';
 import 'prismjs/components/prism-sql.js';
 import 'prismjs/components/prism-diff.js';
 import { createRequire } from 'module';
-import { readdirSync, existsSync, readFileSync } from 'fs';
-import { fileURLToPath, pathToFileURL } from 'url';
 import puppeteer from 'puppeteer';
 import { tmpdir } from 'os';
 
@@ -182,6 +182,7 @@ var CSS = `
       margin: 0;
       overflow: hidden;
       table-layout: fixed;
+      width: 100%;
     }
 
     table td,
@@ -360,9 +361,23 @@ async function convertMdToPdf(inputPath, options) {
 }
 
 // bin/md-to-pdf.ts
+function getVersion() {
+  return "1.0.7";
+}
 var program = new Command();
-program.name("md-to-pdf").description("Convert Markdown files to styled PDF documents").version("1.0.6").argument("<input>", "Markdown file to convert").option("-o, --output <path>", "Output PDF file path").option("-t, --title <title>", "Document title").option("-f, --format <format>", "Page format (A4, Letter, Legal)", "A4").option("--landscape", "Use landscape orientation").option("--margin-top <margin>", "Top margin (e.g. 20mm)").option("--margin-right <margin>", "Right margin (e.g. 20mm)").option("--margin-bottom <margin>", "Bottom margin (e.g. 20mm)").option("--margin-left <margin>", "Left margin (e.g. 20mm)").option("-s, --style <name-or-path>", `Style name (${getBuiltInStyles().join(", ")}) or path to .css file`).action(async (input, opts) => {
+program.name("md-to-pdf").description("Convert Markdown files to styled PDF documents").version(getVersion()).argument("[input]", "Markdown file to convert").option("-o, --output <path>", "Output PDF file path").option("-t, --title <title>", "Document title").option("-f, --format <format>", "Page format (A4, Letter, Legal)", "A4").option("--landscape", "Use landscape orientation").option("--margin-top <margin>", "Top margin (e.g. 20mm)").option("--margin-right <margin>", "Right margin (e.g. 20mm)").option("--margin-bottom <margin>", "Bottom margin (e.g. 20mm)").option("--margin-left <margin>", "Left margin (e.g. 20mm)").option("-s, --style <name-or-path>", `Style name (${getBuiltInStyles().join(", ")}) or path to .css file`).option("-l, --list-styles", "List available styles").action(async (input, opts) => {
   try {
+    if (opts.listStyles) {
+      console.log("Available styles:\n");
+      for (const style of getBuiltInStyles()) {
+        console.log(`  ${style}`);
+      }
+      process.exit(0);
+    }
+    if (!input) {
+      program.error("missing required argument: input");
+      return;
+    }
     const margin = opts.marginTop || opts.marginRight || opts.marginBottom || opts.marginLeft ? {
       top: opts.marginTop ?? "20mm",
       right: opts.marginRight ?? "20mm",
