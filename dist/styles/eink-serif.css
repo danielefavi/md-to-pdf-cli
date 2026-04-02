@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic&subset=latin);
 
-/* ── E-Ink Optimized Theme ──
+/* ── E-Ink Serif Theme ──
    Pure black & white, no grays, no backgrounds.
-   Serif headings + sans-serif body.
+   Fully serif: Vollkorn throughout.
    Designed for crisp rendering on B&W e-ink displays. */
 
 /* ── Image containers ── */
@@ -34,9 +34,9 @@
 body {
 	background-color: #fff;
 	color: #000;
-	font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Vollkorn", Georgia, "Times New Roman", Times, serif;
 	font-weight: 400;
-	font-size: 16pt;
+	font-size: 17pt;
 	max-width: 800px;
 	margin: 0 auto;
 	line-height: 1.8;
@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 2.5em;
+	font-size: 2.6em;
 	font-weight: 700;
 	letter-spacing: -0.02em;
 	border-bottom: 2px solid #000;
@@ -61,7 +61,7 @@ h1 {
 }
 
 h2 {
-	font-size: 1.8em;
+	font-size: 1.9em;
 	font-weight: 700;
 	letter-spacing: -0.01em;
 	border-bottom: 1.5px solid #000;
@@ -69,12 +69,12 @@ h2 {
 }
 
 h3 {
-	font-size: 1.45em;
+	font-size: 1.55em;
 	font-weight: 700;
 }
 
 h4 {
-	font-size: 1.35em;
+	font-size: 1.45em;
 	font-weight: 700;
 	font-style: italic;
 }
@@ -83,16 +83,16 @@ h5 {
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 0.95em;
+	font-family: "Vollkorn", Georgia, "Times New Roman", Times, serif;
+	font-size: 1.0em;
 }
 
 h6 {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 0.85em;
+	font-family: "Vollkorn", Georgia, "Times New Roman", Times, serif;
+	font-size: 0.9em;
 }
 
 /* ── Paragraphs ── */
@@ -135,7 +135,7 @@ code:not(pre code) {
 	background-color: #d0d0d0;
 	padding: 2px 6px 1px 6px;
 	font-family: "Courier New", Courier, monospace !important;
-	font-size: 0.88em !important;
+	font-size: 0.9em !important;
 	color: #000;
 }
 
@@ -146,7 +146,7 @@ pre {
 	border: 2px solid #000;
 	border-radius: 5px;
 	font-family: "Courier New", Courier, monospace !important;
-	font-size: 11pt !important;
+	font-size: 12pt !important;
 	line-height: 1.55;
 	margin-bottom: 16px !important;
 }
@@ -270,7 +270,7 @@ table th {
 	background-color: #000;
 	font-weight: 700;
 	text-align: left;
-	font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Vollkorn", Georgia, "Times New Roman", Times, serif;
 	font-size: 0.9em;
 	text-transform: uppercase;
 	letter-spacing: 0.03em;
@@ -305,7 +305,7 @@ figcaption {
 kbd {
 	background-color: #fff;
 	border: 1.5px solid #000;
-	font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Vollkorn", Georgia, "Times New Roman", Times, serif;
 	font-size: 0.85em;
 	padding: 2px 6px;
 }
@@ -318,7 +318,7 @@ dl {
 
 dt {
 	font-weight: 700;
-	font-family: Georgia, "Noto Serif", "Times New Roman", Times, serif;
+	font-family: "Vollkorn", Georgia, "Times New Roman", Times, serif;
 	margin-top: 0.8em;
 }
 
