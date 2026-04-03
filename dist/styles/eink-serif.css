@@ -36,10 +36,11 @@ body {
 	color: #000;
 	font-family: "Vollkorn", Georgia, "Times New Roman", Times, serif;
 	font-weight: 400;
-	font-size: 17pt;
+	font-size: 11pt;
 	max-width: 800px;
 	margin: 0 auto;
-	line-height: 1.8;
+	line-height: 1.4;
+	overflow-wrap: break-word;
 }
 
 /* ── Headings ── */
@@ -146,7 +147,7 @@ pre {
 	border: 2px solid #000;
 	border-radius: 5px;
 	font-family: "Courier New", Courier, monospace !important;
-	font-size: 12pt !important;
+	font-size: 10pt !important;
 	line-height: 1.55;
 	margin-bottom: 16px !important;
 }
@@ -368,6 +369,8 @@ abbr[title] {
 		max-width: none;
 		background-color: #fff;
 		color: #000;
+		overflow-wrap: break-word;
+		word-wrap: break-word;
 	}
 
 	h1, h2, h3, h4, h5, h6 {

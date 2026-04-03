@@ -297,6 +297,7 @@ function wrapHtml(contentHtml, options) {
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${title}</title>
     <style>${resolveStyleCss(options?.style)}</style>
     <style>${PRISM_DRACULA_CSS}</style>
@@ -362,7 +363,7 @@ async function convertMdToPdf(inputPath, options) {
 
 // bin/md-to-pdf.ts
 function getVersion() {
-  return "1.3.0";
+  return "1.3.1";
 }
 var program = new Command();
 program.name("md-to-pdf").description("Convert Markdown files to styled PDF documents").version(getVersion()).argument("[input]", "Markdown file to convert").option("-o, --output <path>", "Output PDF file path").option("-t, --title <title>", "Document title").option("-f, --format <format>", "Page format (A4, Letter, Legal)", "A4").option("--landscape", "Use landscape orientation").option("--margin-top <margin>", "Top margin (e.g. 20mm)").option("--margin-right <margin>", "Right margin (e.g. 20mm)").option("--margin-bottom <margin>", "Bottom margin (e.g. 20mm)").option("--margin-left <margin>", "Left margin (e.g. 20mm)").option("-s, --style <name-or-path>", `Style name (${getBuiltInStyles().join(", ")}) or path to .css file`).option("-l, --list-styles", "List available styles").action(async (input, opts) => {

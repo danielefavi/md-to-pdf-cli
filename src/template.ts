@@ -21,6 +21,7 @@ export function wrapHtml(contentHtml: string, options?: WrapHtmlOptions): string
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${title}</title>
     <style>${resolveStyleCss(options?.style)}</style>
     <style>${PRISM_DRACULA_CSS}</style>

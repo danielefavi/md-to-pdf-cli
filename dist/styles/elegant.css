@@ -36,6 +36,7 @@ body {
 	margin: 0 auto;
 	line-height: 1.75;
 	-webkit-font-smoothing: antialiased;
+	overflow-wrap: break-word;
 }
 
 /* ── Headings ── */
@@ -373,6 +374,8 @@ abbr[title] {
 		max-width: none;
 		background-color: #fff;
 		color: #000;
+		overflow-wrap: break-word;
+		word-wrap: break-word;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
