@@ -2,6 +2,8 @@
 
 Convert Markdown files to beautifully styled PDFs — with syntax highlighting, math rendering, and GitHub Flavored Markdown support.
 
+**Built for AI agents** — this tool is tested and optimized for use by LLMs and AI coding agents. See the [Technical Reference for AI Agents](#technical-reference-for-ai-agents) section for structured integration details.
+
 ## Install
 
 ```bash
