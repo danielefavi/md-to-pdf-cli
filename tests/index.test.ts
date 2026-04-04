@@ -58,6 +58,15 @@ describe('convertMdToPdf (integration)', () => {
     expect(content.toString('binary')).toContain('/Image');
   }, 30000);
 
+  it('default output path replaces .markdown with .pdf', async () => {
+    const inputPath = join(tmpDir, 'notes.markdown');
+    await writeFile(inputPath, '# Notes');
+    const outputPath = await convertMdToPdf(inputPath);
+    expect(outputPath).toBe(join(tmpDir, 'notes.pdf'));
+    const content = await readFile(outputPath);
+    expect(content.subarray(0, 5).toString()).toBe('%PDF-');
+  }, 30000);
+
   it('passes style option through to PDF generation', async () => {
     const inputPath = join(tmpDir, 'styled.md');
     await writeFile(inputPath, '# Styled');

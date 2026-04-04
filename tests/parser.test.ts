@@ -78,6 +78,13 @@ describe('parseMarkdownFile', () => {
     await expect(parseMarkdownFile(join(tmpDir, 'nope.md'))).rejects.toThrow();
   });
 
+  it('reads and parses a .markdown file', async () => {
+    const filePath = join(tmpDir, 'test.markdown');
+    await writeFile(filePath, '# Hello');
+    const html = await parseMarkdownFile(filePath);
+    expect(html).toContain('<h1>Hello</h1>');
+  });
+
   it('throws for non-.md extension', async () => {
     const filePath = join(tmpDir, 'test.txt');
     await writeFile(filePath, '# Hello');

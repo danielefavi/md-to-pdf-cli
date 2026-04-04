@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -53,6 +53,41 @@ describe('resolveStyleCss', () => {
 
   it('error message lists built-in styles', () => {
     expect(() => resolveStyleCss('fancy')).toThrow(/default/);
+  });
+});
+
+describe('getKatexCss', () => {
+  beforeEach(() => {
+    vi.resetModules();
+  });
+
+  it('returns CSS containing @font-face declarations', async () => {
+    const { getKatexCss } = await import('../src/styles.js');
+    const css = getKatexCss();
+    expect(css).toBeTruthy();
+    expect(css).toContain('@font-face');
+  });
+
+  it('caches the result on subsequent calls', async () => {
+    const { getKatexCss } = await import('../src/styles.js');
+    const first = getKatexCss();
+    const second = getKatexCss();
+    expect(first).toBe(second);
+  });
+});
+
+describe('resolveStyleCss caching', () => {
+  it('returns the same string for repeated custom .css file reads', () => {
+    const tmpDir = mkdtempSync(join(tmpdir(), 'md-to-pdf-cache-'));
+    const cssPath = join(tmpDir, 'cached.css');
+    writeFileSync(cssPath, 'body { color: red; }');
+    try {
+      const first = resolveStyleCss(cssPath);
+      const second = resolveStyleCss(cssPath);
+      expect(first).toBe(second);
+    } finally {
+      rmSync(tmpDir, { recursive: true });
+    }
   });
 });
 

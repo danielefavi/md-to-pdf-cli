@@ -83,6 +83,25 @@ describe('generatePdf (unit, mocked puppeteer)', () => {
     expect(mockSetContent).not.toHaveBeenCalled();
   });
 
+  it('defaults landscape to false', async () => {
+    const { generatePdf } = await import('../src/pdf.js');
+    await generatePdf('<p>test</p>');
+    expect(mockPdf).toHaveBeenCalledWith(expect.objectContaining({ landscape: false }));
+  });
+
+  it('passes landscape: true option', async () => {
+    const { generatePdf } = await import('../src/pdf.js');
+    await generatePdf('<p>test</p>', { landscape: true });
+    expect(mockPdf).toHaveBeenCalledWith(expect.objectContaining({ landscape: true }));
+  });
+
+  it('passes partial margin object as-is without filling defaults', async () => {
+    const { generatePdf } = await import('../src/pdf.js');
+    const margin = { top: '10mm' } as any;
+    await generatePdf('<p>test</p>', { margin });
+    expect(mockPdf).toHaveBeenCalledWith(expect.objectContaining({ margin: { top: '10mm' } }));
+  });
+
   it('uses page.setContent when basePath is not provided', async () => {
     const mockGoto = vi.fn().mockResolvedValue(undefined);
     mockNewPage.mockResolvedValue({ goto: mockGoto, setContent: mockSetContent, pdf: mockPdf });
