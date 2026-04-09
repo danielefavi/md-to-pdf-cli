@@ -2,33 +2,33 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { resolveStyleCss, CSS, getBuiltInStyles } from '../src/styles.js';
+import { resolveStyleCss, getBuiltInStyles } from '../src/styles.js';
 
 describe('resolveStyleCss', () => {
   it('returns default CSS when style is undefined', () => {
-    expect(resolveStyleCss()).toBe(CSS);
+    expect(resolveStyleCss()).toContain('Open Sans');
   });
 
   it('returns default CSS when style is "default"', () => {
-    expect(resolveStyleCss('default')).toBe(CSS);
+    expect(resolveStyleCss('default')).toContain('Open Sans');
   });
 
   it('returns eink CSS with Vollkorn font', () => {
     const css = resolveStyleCss('eink');
     expect(css).toContain('Vollkorn');
-    expect(css).not.toBe(CSS);
+    expect(css).not.toContain('Open Sans');
   });
 
   it('returns elegant CSS with Playfair Display font', () => {
     const css = resolveStyleCss('elegant');
     expect(css).toContain('Playfair Display');
-    expect(css).not.toBe(CSS);
+    expect(css).not.toContain('Open Sans');
   });
 
   it('resolves any .css file in the styles directory by name', () => {
     const css = resolveStyleCss('serif');
     expect(css).toBeTruthy();
-    expect(css).not.toBe(CSS);
+    expect(css).not.toContain('Open Sans');
   });
 
   it('reads a custom .css file path', () => {
