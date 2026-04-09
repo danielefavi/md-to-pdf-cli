@@ -258,6 +258,19 @@ LIMIT 10;
 | [Link in cell](https://example.com) | ✅ Done | Clickable links |
 | ~~Strikethrough~~ | ✅ Done | Standard GFM extension       |
 
+
+### Table with Paragraphs
+
+Regular paragraph text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+| Column A | Column B | Column C |
+|----------|----------|----------|
+| Row 1A   | Row 1B   | Row 1C   |
+| Row 2A   | Row 2B   | Row 2C   |
+| Row 3A   | Row 3B   | Row 3C   |
+
+Regular paragraph text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
 ---
 
 ## Horizontal Rules

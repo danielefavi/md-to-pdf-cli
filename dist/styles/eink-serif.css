@@ -244,7 +244,7 @@ hr {
 
 table {
 	border-collapse: collapse;
-	margin: 0;
+	margin: 1em 0 0 0;
 	overflow: hidden;
 	table-layout: fixed;
 	width: 100%;
