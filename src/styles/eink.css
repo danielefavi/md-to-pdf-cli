@@ -359,7 +359,7 @@ abbr[title] {
 /* ── Print styles ── */
 
 @page {
-	margin: 15mm;
+	margin: 10mm;
 }
 
 @media print {
