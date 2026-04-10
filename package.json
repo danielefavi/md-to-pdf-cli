@@ -1,7 +1,8 @@
 {
   "name": "md-to-pdf-cli",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Convert Markdown files to styled PDF documents",
+  "deprecated": "This package has been deprecated. Use md-bookify instead: https://www.npmjs.com/package/md-bookify",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

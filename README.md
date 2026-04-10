@@ -1,5 +1,13 @@
 # md-to-pdf-cli
 
+> **This package has been deprecated.** Use [`md-bookify`](https://www.npmjs.com/package/md-bookify) instead.
+>
+> ```bash
+> npm install -g md-bookify
+> ```
+
+---
+
 Convert Markdown files to beautifully styled PDFs — with syntax highlighting, math rendering, and GitHub Flavored Markdown support.
 
 **Built for AI agents** — this tool is tested and optimized for use by LLMs and AI coding agents. See the [Technical Reference for AI Agents](#technical-reference-for-ai-agents) section for structured integration details.
@@ -7,14 +15,14 @@ Convert Markdown files to beautifully styled PDFs — with syntax highlighting, 
 ## Install
 
 ```bash
-# Global install — makes md-to-pdf-cli available everywhere
-npm install -g md-to-pdf-cli
+# This package is deprecated. Use md-bookify instead:
+npm install -g md-bookify
 
 # Or as a project dependency
-npm install md-to-pdf-cli
+npm install md-bookify
 ```
 
-Requires Node.js >= 18. Puppeteer downloads a bundled Chromium automatically.
+Requires Node.js >= 20. Puppeteer downloads a bundled Chromium automatically.
 
 ## Quick Start
 
